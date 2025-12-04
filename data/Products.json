@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "name": "Galactic Cruiser",
+      "description": "An innovative spacecraft designed for deep space exploration.",
+      "applications": [
+        "Stellar Drive Propulsion",
+        "Holodeck Entertainment"
+      ]
+    },
+    {
+      "name": "SkySailor Drones",
+      "description": "Environmentally-friendly drones powered by solar and wind energy.",
+      "applications": [
+        "Eco-Cam Tech",
+        "Infinite Flight Mode"
+      ]
+    },
+    {
+      "name": "Nebula Stations",
+      "description": "Modular space habitats for research, tourism, and colonization.",
+      "applications": [
+        "Bio-Dome Agriculture",
+        "Gravity Pods"
+      ]
+    },
+    {
+      "name": "AeroAcademy",
+      "description": "An immersive training institution for aerospace engineering and astronaut preparation.",
+      "applications": [
+        "Virtual Spacewalks",
+        "Intergalactic Culture Modules"
+      ]
+    }
+  ]
+}

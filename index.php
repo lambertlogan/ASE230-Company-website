@@ -1,3 +1,22 @@
+<?php
+include_once "lib/readCsv.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name    = $_POST["name"];
+    $email   = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["comments"];
+
+    $file = fopen("data/Contacts.csv", "a");
+	
+	##stupid newline bug fix
+	if (filesize("data/Contacts.csv") > 0) {
+		fwrite($file, "\n");
+	}
+	
+    fputcsv($file, [$name, $email, $subject, $message]);
+    fclose($file);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -152,7 +171,7 @@
 				<?php
 					include_once "lib/readJson.php";
 					$members = readJsonFile("data/Team.json")["team"];
-
+					
 					foreach ($members as $member) {
 						echo '<div class="col-lg-3 col-sm-6">';
 							echo '<div class="team-box text-center">';
@@ -212,7 +231,7 @@
     </section>
     <!--END AWARDS-->
 
-    <!-- CONTACT FORM START-->
+    <!-- CONTACT FORM START-->	
     <section class="section " id="contact">
         <div class="container">
             <div class="row">
@@ -233,7 +252,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="custom-form mt-4 pt-4">
-                        <form method="post" name="myForm" onsubmit="return validateForm()">
+                        <form method="post" name="myForm">
                             <p id="error-msg"></p>
                             <div id="simple-msg"></div>
                             <div class="row">
@@ -253,8 +272,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group mt-2">
-                                        <input type="text" class="form-control" id="subject"
-                                            placeholder="Your Subject.." />
+                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Your Subject.." />
                                     </div>
                                 </div>
                             </div>
